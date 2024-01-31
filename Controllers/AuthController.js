@@ -135,7 +135,7 @@ module.exports.reset_password = async (req, res, next)=>{
                     res.render("error_password_reset");
                 } else {
                     const user = await UserModel.findById(id);
-                    if (user )res.render(__dirname + "/Views/index.ejs",{email: user.email});
+                    if (user )res.render(__dirname + "./Views/index.ejs",{email: user.email});
                     else res.send('not verified');
                 }
             })
