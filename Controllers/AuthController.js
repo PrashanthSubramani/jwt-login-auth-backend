@@ -70,10 +70,10 @@ module.exports.login = async(req, res, next)=>{
             maxAge: maxAge * 1000,
         })
 
-        res.status(200).json({user:user._id, created:true});
+        res.status(200).json({user:user._id, status:true});
     }catch(err){
         const errors = handleErrors(err);
-        res.json({errors,create:false});
+        res.json({errors,status:false});
     }
 };
 
@@ -91,7 +91,7 @@ module.exports.forget_password = async (req, res, next)=>{
             httpOnly : false,
         });
 
-        const link=`http://localhost:4000/reset-password/${userId}/${token}`;
+        const link=`https://jwt-login-auth-backend.onrender.com/reset-password/${userId}/${token}`;
 
         var transporter = nodemailer.createTransport({
             service: 'gmail',
