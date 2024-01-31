@@ -14,9 +14,9 @@ app.listen(process.env.PORT,()=>{
 
 connectToDatabase()
 
-// 'https://stellar-torrone-cee7e7.netlify.app',
+
 app.use(cors({
-    origin:['http://localhost:3000'],
+    origin:['https://stellar-torrone-cee7e7.netlify.app',],
     method:["GET", "POST"],
     credentials : true,
 })
