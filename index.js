@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 require('dotenv').config();
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:false}));
-
+app.set('Views', path.join(__dirname, 'Views'));
 
 app.listen(process.env.PORT,()=>{
     console.log('Server started in port ' + process.env.PORT)
