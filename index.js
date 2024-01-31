@@ -15,12 +15,15 @@ app.listen(process.env.PORT,()=>{
 
 connectToDatabase()
 
-app.use(cors({
-    origin:['https://master--stellar-torrone-cee7e7.netlify.app/'],
-    method:["GET", "POST"],
-    credentials : true,
-})
-);
+
+// app.use(cors({
+//     origin:['https://stellar-torrone-cee7e7.netlify.app/'],
+//     method:["GET", "POST"],
+//     credentials : true,
+// })
+// );
+
+app.use(cors());
 
 
 app.use(cookieParser());
