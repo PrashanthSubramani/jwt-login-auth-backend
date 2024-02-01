@@ -9,7 +9,7 @@ require('dotenv').config();
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:false}));
 
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '../views');
 
 app.listen(process.env.PORT,()=>{
     console.log('Server started in port ' + process.env.PORT)
