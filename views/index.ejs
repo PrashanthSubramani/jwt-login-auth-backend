@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('header') -%>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center vh-100">
+                <div class="col-4 col-lg-4 col-sm-12 col-md-12">
+                    <div class="card shadow p-3 mb-5 bg-white rounded-5">
+                        <div class="card-header">
+                            Enter your New Password : <%= email %>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                <div class="mb-3">
+                                  <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                  <input type="password" class="form-control" placeholder="Enter new password" required id="password" name="password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirm_password" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" required placeholder="Enter confirm password" id="confirm_password" name="confirm_password">
+                                  </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var form = document.querySelector('form');
+
+                form.addEventListener('submit', function(event) {
+                var password = document.getElementById('password').value;
+                var confirmPassword = document.getElementById('confirm_password').value;
+
+                if (password !== confirmPassword) {
+                    event.preventDefault();
+                    alert('Password and Confirm Password do not match.');
+                }
+                });
+            });
+      </script>
+      
+      <%- include('footer') -%>
+</body>
+</html>
