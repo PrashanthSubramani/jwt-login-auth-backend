@@ -7,8 +7,8 @@ const cookieParser = require("cookie-parser");
 require('dotenv').config();
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:false}));
-app.engine('html', require('ejs').renderFile); 
-app.set('views', '/opt/render/project/src/views'); 
+
+app.set('views', path.join(__dirname, 'views'));
 
 app.listen(process.env.PORT,()=>{
     console.log('Server started in port ' + process.env.PORT)
@@ -22,7 +22,6 @@ app.use(cors({
     credentials : true,
 })
 );
-
 
 app.use(cookieParser());
 app.use(express.json());
