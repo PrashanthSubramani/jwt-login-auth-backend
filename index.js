@@ -8,6 +8,7 @@ require('dotenv').config();
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:false}));
 app.engine('html', require('ejs').renderFile); 
+app.set('views', '/opt/render/project/src/views'); 
 
 app.listen(process.env.PORT,()=>{
     console.log('Server started in port ' + process.env.PORT)
