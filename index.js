@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { connectToDatabase } = require('./database/dbconfig');
 const authRoutes = require("./Routes/AuthRoutes")
 const app = express();
