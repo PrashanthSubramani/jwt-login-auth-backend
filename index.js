@@ -16,8 +16,7 @@ connectToDatabase()
 
 
 app.use(cors({
-    origin:['https://stellar-torrone-cee7e7.netlify.app',],
-    method:["GET", "POST"],
+    origin:'*',
     credentials : true,
 })
 );
