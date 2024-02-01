@@ -18,13 +18,13 @@ module.exports.register = async (req, res, next)=>{
         const token =createToken(user._id);
         // httpOnly: true,
         // magAge: 60 * 60 * 1000
-        // sameSite: 'None',
+        // SameSite:'Lax',
         // secure: true,
         // domain: 'your_frontend_domain_here.com'
         res.cookie('Jwt',token,{
             httpOnly : true,
             maxAge: maxAge * 1000,
-            sameSite: 'None',
+            SameSite:'Lax',
             secure: true,
             domain: 'https://stellar-torrone-cee7e7.netlify.app'
         })
@@ -75,7 +75,7 @@ module.exports.login = async(req, res, next)=>{
         res.cookie('Jwt',token,{
             httpOnly : true,
             maxAge: maxAge * 1000,
-            sameSite: 'None',
+            SameSite:'Lax',
             secure: true,
             domain: 'https://stellar-torrone-cee7e7.netlify.app'
         })
@@ -103,7 +103,7 @@ module.exports.forget_password = async (req, res, next)=>{
             // httpOnly : false,
             httpOnly : true,
             maxAge: maxAge * 1000,
-            sameSite: 'None',
+            SameSite:'Lax',
             secure: true,
             domain: 'https://stellar-torrone-cee7e7.netlify.app'
         });
