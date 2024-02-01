@@ -14,6 +14,7 @@ app.listen(process.env.PORT,()=>{
 
 connectToDatabase()
 
+app.set("trust proxy", 1);
 
 app.use(cors({
     origin:true,

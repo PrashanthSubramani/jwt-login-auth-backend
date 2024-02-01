@@ -71,7 +71,8 @@ module.exports.login = async(req, res, next)=>{
             httpOnly : true,
             maxAge: maxAge * 1000,
             sameSite:'none',
-            secure: true
+            secure: true,
+            domain:'.onrender.com'
         })
 
         res.status(200).json({user:user._id, status:true});
@@ -94,7 +95,8 @@ module.exports.forget_password = async (req, res, next)=>{
             withCrdentials: true,
             httpOnly : true,
             sameSite:'none',
-            secure: true
+            secure: true,
+            domain:'.onrender.com'
         });
 
         const link=`https://jwt-login-auth-backend.onrender.com/reset-password/${userId}/${token}`;
