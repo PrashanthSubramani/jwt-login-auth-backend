@@ -20,7 +20,8 @@ module.exports.register = async (req, res, next)=>{
             withCrdentials: true,
             httpOnly : true,
             maxAge: maxAge * 1000,
-            sameSite:'none'
+            sameSite:'none',
+            secure: true
         })
 
         res.status(201).json({user:user._id, created:true});
@@ -69,7 +70,8 @@ module.exports.login = async(req, res, next)=>{
             withCrdentials: true,
             httpOnly : true,
             maxAge: maxAge * 1000,
-            sameSite:'none'
+            sameSite:'none',
+            secure: true
         })
 
         res.status(200).json({user:user._id, status:true});
@@ -91,6 +93,8 @@ module.exports.forget_password = async (req, res, next)=>{
         res.cookie('Jwt',token,{
             withCrdentials: true,
             httpOnly : true,
+            sameSite:'none',
+            secure: true
         });
 
         const link=`https://jwt-login-auth-backend.onrender.com/reset-password/${userId}/${token}`;
