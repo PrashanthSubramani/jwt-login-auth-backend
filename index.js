@@ -6,10 +6,10 @@ const authRoutes = require("./Routes/AuthRoutes")
 const app = express();
 const cookieParser = require("cookie-parser");
 require('dotenv').config();
-app.set('view engine','ejs');
-app.use(express.urlencoded({extended:false}));
 
 app.set('views', __dirname + '/views');
+app.set('view engine','ejs');
+app.use(express.urlencoded({extended:false}));
 
 app.listen(process.env.PORT,()=>{
     console.log('Server started in port ' + process.env.PORT)
