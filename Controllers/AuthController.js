@@ -74,7 +74,7 @@ module.exports.login = async(req, res, next)=>{
             secure: true,
         })
 
-        res.status(200).json({user:user._id, status:true});
+        res.status(200).json({user:user._id, status:true, _token:token});
     }catch(err){
         const errors = handleErrors(err);
         res.json({errors,status:false});
