@@ -2,12 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const { connectToDatabase } = require('./database/dbconfig');
 const authRoutes = require("./Routes/AuthRoutes")
-const path = require('path');
 const app = express();
 const cookieParser = require("cookie-parser");
 require('dotenv').config();
-const viewpath = path.join(__dirname,"/Views/");
-app.set('Views',viewpath);
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:false}));
 

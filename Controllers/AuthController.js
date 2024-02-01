@@ -16,10 +16,17 @@ module.exports.register = async (req, res, next)=>{
         const {email, password} =req.body;
         const user = await UserModel.create({email, password});
         const token =createToken(user._id);
+        // httpOnly: true,
+        // magAge: 60 * 60 * 1000
+        // sameSite: 'None',
+        // secure: true,
+        // domain: 'your_frontend_domain_here.com'
         res.cookie('Jwt',token,{
-            withCrdentials: true,
-            httpOnly : false,
+            httpOnly : true,
             maxAge: maxAge * 1000,
+            sameSite: 'None',
+            secure: true,
+            domain: 'https://stellar-torrone-cee7e7.netlify.app'
         })
 
         res.status(201).json({user:user._id, created:true});
@@ -64,12 +71,17 @@ module.exports.login = async(req, res, next)=>{
         const {email, password} =req.body;
         const user = await UserModel.login(email, password);
         const token =createToken(user._id);
-        res.cookie('Jwt',token,{
-            withCrdentials: true,
-            httpOnly : false,
-            maxAge: maxAge * 1000,
-        })
 
+        res.cookie('Jwt',token,{
+            httpOnly : true,
+            maxAge: maxAge * 1000,
+            sameSite: 'None',
+            secure: true,
+            domain: 'https://stellar-torrone-cee7e7.netlify.app'
+        })
+        // withCrdentials: true,
+        // httpOnly : false,
+        // maxAge: maxAge * 1000,
         res.status(200).json({user:user._id, status:true});
     }catch(err){
         const errors = handleErrors(err);
@@ -87,8 +99,13 @@ module.exports.forget_password = async (req, res, next)=>{
                     });
 
         res.cookie('Jwt',token,{
-            withCrdentials: true,
-            httpOnly : false,
+            // withCrdentials: true,
+            // httpOnly : false,
+            httpOnly : true,
+            maxAge: maxAge * 1000,
+            sameSite: 'None',
+            secure: true,
+            domain: 'https://stellar-torrone-cee7e7.netlify.app'
         });
 
         const link=`https://jwt-login-auth-backend.onrender.com/reset-password/${userId}/${token}`;
