@@ -72,7 +72,7 @@ module.exports.login = async(req, res, next)=>{
             maxAge: maxAge * 1000,
             sameSite:'none',
             secure: true,
-            domain:'.onrender.com'
+            domain:'.netlify.app'
         })
 
         res.status(200).json({user:user._id, status:true});
