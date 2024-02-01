@@ -20,6 +20,7 @@ module.exports.register = async (req, res, next)=>{
             withCrdentials: true,
             httpOnly : true,
             maxAge: maxAge * 1000,
+            sameSite:'none'
         })
 
         res.status(201).json({user:user._id, created:true});
@@ -68,6 +69,7 @@ module.exports.login = async(req, res, next)=>{
             withCrdentials: true,
             httpOnly : true,
             maxAge: maxAge * 1000,
+            sameSite:'none'
         })
 
         res.status(200).json({user:user._id, status:true});
