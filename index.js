@@ -14,10 +14,9 @@ app.listen(process.env.PORT,()=>{
 
 connectToDatabase()
 
-app.set("trust proxy", 1);
 
 app.use(cors({
-    origin:true,
+    origin:['https://stellar-torrone-cee7e7.netlify.app'],
     credentials : true,
 })
 );
