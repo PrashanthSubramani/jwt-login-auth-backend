@@ -7,8 +7,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 require('dotenv').config();
 
-app.set('views', __dirname + '/views');
-app.set('view engine','ejs');
+app.set('views', './views');
+app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:false}));
 
 app.listen(process.env.PORT,()=>{
